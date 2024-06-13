@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fanta | @4Help</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: RGB(10, 10, 10);
+      color: red;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+    }
+
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .buy-button,
+    .purchase-button,
+    .features-button,
+    .why-button,
+    .discord-button,
+    .dev-credit-button {
+      background-color: #98d5e3;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 20px #0a0a2a;
+      cursor: pointer;
+      margin: 5px;
+      transition: opacity 0.5s ease;
+      z-index: 5;
+      user-select: none;
+    }
+
+    .panel-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 7;
+      transition: opacity 0.5s ease;
+    }
+
+    .panel {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      background-color: #A507F4;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      z-index: 7;
+      transition: opacity 0.5s ease;
+    }
+
+    .panel h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+    }
+
+    .panel p {
+      font-size: 20px;
+    }
+
+    .buy-button:hover,
+    .purchase-button:hover,
+    .why-button:hover,
+    .features-button:hover,
+    .discord-button:hover,
+    .dev-credit-button:hover {
+      background-color: #004080;
+      box-shadow: 0 0 30px #004080;
+      user-select: none;
+    }
+
+
+    button:hover {
+      background-color: #83d3e6;
+      box-shadow: #83d3e6 0px 0px 10px;
+      opacity: 100%;
+      user-select: none;
+    }
+
+    h1 {
+      color: #90D6E6;
+      font-size: 70px;
+      z-index: 4;
+      user-select: none;
+      positon:
+        margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Fanta | @4Help</h1>
+  <div class="button-container">
+    <button class="buy-button" onclick="window.open('https://guns.lol/fantaisgoat')">Guns.Lol</button>
+    <button class="discord-button" onclick="window.open('https://bit.ly/FantasDiscord', '_blank')">Discord</button>
+  </div>
+  </div>
+
+  <div id="particles-js"></div>
+  <script>
+    function openPanel(panelId) {
+      var panel = document.getElementById(panelId);
+      var overlay = document.getElementById(panelId + "-overlay");
+      panel.style.opacity = "0";
+      overlay.style.opacity = "0";
+      panel.style.display = "block";
+      overlay.style.display = "block";
+      setTimeout(function () {
+        panel.style.opacity = "1";
+        overlay.style.opacity = "1";
+      }, 50);
+    }
+
+    function closePanel(panelId) {
+      var panel = document.getElementById(panelId);
+      var overlay = document.getElementById(panelId + "-overlay");
+      panel.style.opacity = "0";
+      overlay.style.opacity = "0";
+      setTimeout(function () {
+        panel.style.display = "none";
+        overlay.style.display = "none";
+      }, 500);
+    }
+
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 550
+          }
+        },
+        "color": {
+          "value": "#07F4EB"
+        },
+        "shape": {
+          "type": "triangle",
+          "stroke": {
+            "width": 0,
+            "color": "#A507F4"
+          },
+          "polygon": {
+            "nb_sides": 12
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 1.7,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#A507F4",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 5,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": true
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 300,
+            "line_linked": {
+              "particles_nb": 10
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 9,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 40,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 10
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</html>
